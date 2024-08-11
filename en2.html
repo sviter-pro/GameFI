@@ -166,6 +166,17 @@
 			};
 			
 			firebaseOrdersCollection.push(order);
+var button = document.getElementById("btn");
+  
+  button.disabled = true; // делаем кнопку недоступной
+  button.innerText = "Ваш заказ принят! Подождите..."; // меняем текст кнопки
+  
+  setTimeout(function() {
+    button.disabled = false; // делаем кнопку доступной
+    button.innerText = "Оформить заказ"; // возвращаем исходный текст кнопки
+  }, 35000); // через 15 секунд кнопка снова станет доступной
+			
+			
 			$('.success-message').show();
 			$('#contactForm')[0].reset();
 			$('.success-message')[0].reset();
