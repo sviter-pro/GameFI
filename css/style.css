@@ -46,6 +46,12 @@ img {
   height: auto;
 }
 
+select {
+  font-size: 0.9rem;
+  padding: 2px 5px;
+  background-color: @gray;
+}
+
 figure {
   margin: 0;
   padding: 10px;
