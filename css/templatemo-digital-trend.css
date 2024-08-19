@@ -583,7 +583,6 @@ fieldset legend {
     box-shadow: none;
     background: var(--project-bg);
     border: 1;
-    padding: 1.7em 1.3em;
     margin: 14px 0;
   }
 
