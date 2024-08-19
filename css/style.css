@@ -46,24 +46,16 @@ img {
   height: auto;
 }
 
-select option {
-  color: white;
-  background-color: black;
-  font-size: 20px;
+fieldset {
+  padding: 20px 30px 30px 30px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-option {
-    color: #000;
-}
-
-[data-selected] {
-    color: #000;
-}
-
-select {
-  font-size: 0.9rem;
-  padding: 2px 5px;
-  background-color: @gray;
+fieldset legend {
+  padding: 0 20px;
+  color: red;
+  font-size: 32px;
 }
 
 figure {
