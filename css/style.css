@@ -46,6 +46,14 @@ img {
   height: auto;
 }
 
+option {
+    color: #000;
+}
+
+[data-selected] {
+    color: #000;
+}
+
 select {
   font-size: 0.9rem;
   padding: 2px 5px;
