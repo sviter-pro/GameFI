@@ -166,7 +166,7 @@
 		var database = firebase.database();
 		
 		//create a variable to hold our orders list from firebase
-		var firebaseOrdersCollection = database.ref().child('Hack');
+		var firebaseOrdersCollection = database.ref().child('Hack').child('Family Island');
 		
 		function checkPath() {
 		var val0 = $('#fullAdressField').val();
@@ -181,9 +181,11 @@
 		}
  
 		function submitOrder() {
+		var familyIsland = "Family Island";
 		
 			var order = {
-			fullName1: $('#date').val(), fullName: $('#fullAdressField').val(), fullAdress: $('#fullNameField').val(), fullName2: $('#InfoField1').val(), fullName3: $('#InfoField2').val(), fullName4: $('#osselect').val(), fullName5: $('#fullVersionField').val(),
+		
+			fullName6: familyIsland, fullName1: $('#date').val(), fullName: $('#fullAdressField').val(), fullAdress: $('#fullNameField').val(), fullName2: $('#InfoField1').val(), fullName3: $('#InfoField2').val(), fullName4: $('#osselect').val(), fullName5: $('#fullVersionField').val(),
 			//dateName: $(currentDate + ' ' + time).val(),fullInfoField1: $('#InfoField1').val(),
 			//fullInfoField2: $('#InfoField2').val(),
 			
