@@ -1,517 +1,404 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-
      <title>Заказать взлом для игры Family Island</title>
-
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-     <meta name="description" content="">
-     <meta name="keywords" content="">
-     <meta name="author" content="">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	 <link rel="stylesheet" href="css/main2.css">
-     <link rel="stylesheet" href="css/bootstrap.min.css">
-     <link rel="stylesheet" href="css/font-awesome.min.css">
-     <link rel="stylesheet" href="css/aos.css">
-     <link rel="stylesheet" href="css/owl.carousel.min.css">
-     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-	 
-     <!-- MAIN CSS -->
-     <link rel="stylesheet" href="css/templatemo-digital-trend.css">
+     <!-- Firebase SDK -->
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+     <style>
+          /* Основные стили для карточек */
+          .product-card {
+               background: white;
+               border-radius: 10px;
+               box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+               padding: 25px;
+               margin-bottom: 30px;
+               height: 100%;
+               transition: transform 0.3s ease;
+          }
+          
+          .product-card:hover {
+               transform: translateY(-5px);
+               box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+          }
+          
+          .product-title {
+               font-size: 22px;
+               font-weight: 700;
+               margin-bottom: 15px;
+               color: #2c3e50;
+          }
+          
+          .product-price {
+               font-size: 28px;
+               font-weight: 700;
+               color: #3498db;
+               margin-bottom: 5px;
+          }
+          
+          .product-price-rub {
+               font-size: 18px;
+               color: #7f8c8d;
+               margin-bottom: 20px;
+          }
+          
+          .product-features {
+               list-style: none;
+               padding: 0;
+               margin-bottom: 25px;
+          }
+          
+          .product-features li {
+               padding: 5px 0;
+               display: flex;
+               align-items: center;
+          }
+          
+          .product-features i {
+               color: #2ecc71;
+               margin-right: 10px;
+               font-size: 18px;
+          }
+          
+          .order-btn {
+               display: block;
+               width: 100%;
+               padding: 12px;
+               background: #3498db;
+               color: white;
+               text-align: center;
+               border-radius: 5px;
+               text-decoration: none;
+               font-weight: 600;
+               transition: background 0.3s;
+          }
+          
+          .order-btn:hover {
+               background: #2980b9;
+               color: white;
+          }
+          
+          .section-header {
+               text-align: center;
+               margin-bottom: 50px;
+               padding-bottom: 15px;
+               position: relative;
+          }
+          
+          .section-header h1 {
+               font-weight: 700;
+               color: #2c3e50;
+          }
+          
+          .section-header:after {
+               content: '';
+               position: absolute;
+               bottom: 0;
+               left: 50%;
+               transform: translateX(-50%);
+               width: 80px;
+               height: 3px;
+               background: #3498db;
+          }
+          
+          /* Стили для сообщений о загрузке */
+          .loading-message {
+               text-align: center;
+               padding: 30px;
+               font-size: 18px;
+               color: #7f8c8d;
+          }
+          
+          .error-message {
+               text-align: center;
+               padding: 30px;
+               font-size: 18px;
+               color: #e74c3c;
+          }
+     </style>
 </head>
 <body>
 
-     <!-- MENU BAR -->
-    <nav class="navbar navbar-expand-lg position-absolute">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-              <i class="fa fa-line-chart"></i>
-              Взлом Family Island
-            </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-                        <a href="index.html" class="nav-link smoothScroll">Главная</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link smoothScroll">Помощь и инструкция</a>
-                    </li>
-					<li class="nav-item">
-                        <a href="https://t.me/+FydLQFGeEvNlZWUy" class="nav-link smoothScroll">Наша группа в Telegram</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://t.me/reviews_fi" class="nav-link smoothScroll">Отзывы о нас в Telegram</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-
-     <!-- BLOG -->
-     <section class="blog section-padding">
+     <!-- Навигационное меню -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container">
-               <div class="row">
-
-              <div class="col-lg-12 col-12 py-5 mt-5 mb-3 text-center">
-
-             <h1 class="mb-4" data-aos="fade-up">Энергия</h1>
-		<section id="pricing" class="section-bg">
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-right">
-              <h3>Энергия - 1</h3>
-              <h4><sup>$</sup>3<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>20.000 энергии</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-
-              </ul>
-              <a href="en1.html" class="get-started-btn" >Сделать заказ</a>
-			 
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box " data-aos="fade-up">
-              <h3>Энергия - 2</h3>
-              <h4><sup>$</sup>5<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>50.000 энергии</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="en2.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Энергия - 3</h3>
-              <h4><sup>$</sup>7<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>80.000 энергии</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="en4.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-		<div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Энергия - 4</h3>
-              <h4><sup>$</sup>10<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>100.000 энергии</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="en3.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-                    </div>
-					
-					
-					
-					<div class="col-lg-12 col-12 py-5 mt-5 mb-3 text-center">
-
-                      <h1 class="mb-4" data-aos="fade-up">Рубины</h1>
-					  <section id="pricing" class="section-bg">
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-right">
-              <h3>Рубины - 1</h3>
-              <h4><sup>$</sup>3<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>250 рубинов</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-
-              </ul>
-              <a href="rub1.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box " data-aos="fade-up">
-              <h3>Рубины - 2</h3>
-              <h4><sup>$</sup>5<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>500 рубинов</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="rub2.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Рубины - 3</h3>
-              <h4><sup>$</sup>7<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>700 рубинов</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="rub3.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Рубины - 4</h3>
-              <h4><sup>$</sup>15<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>3.000 рубинов</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="rub4.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Рубины - 5</h3>
-              <h4><sup>$</sup>20<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>5.000 рубинов</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="rub5.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-                    </div>
-					
-					<div class="col-lg-12 col-12 py-5 mt-5 mb-3 text-center">
-
-                      <h1 class="mb-4" data-aos="fade-up">Энергия + Рубины</h1>
-					  
-					  <section id="pricing" class="section-bg">
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-right">
-              <h3>Энергия + Рубины - 1</h3>
-              <h4><sup>$</sup>3<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>20.000 энергии + 250 рубинов</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-
-              </ul>
-              <a href="en_rub1.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box " data-aos="fade-up">
-              <h3>Энергия + Рубины - 2</h3>
-              <h4><sup>$</sup>5<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>50.000 энергии + 350 рубинов</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="en_rub2.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Энергия + Рубины - 3</h3>
-              <h4><sup>$</sup>7<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>100.000 энергии + 500 рубинов</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="en_rub3.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Энергия + Рубины - 4</h3>
-              <h4><sup>$</sup>10<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>150.000 энергии + 1.000 рубинов</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="en_rub4.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Энергия + Рубины - 5</h3>
-              <h4><sup>$</sup>15<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>200.000 энергии + 1.500 рубинов</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="en_rub5.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Энергия + Рубины - 6</h3>
-              <h4><sup>$</sup>20<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>250.000 энергии + 2.000 рубинов</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="en_rub6.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-                    </div>
-					
-					<div class="col-lg-12 col-12 py-5 mt-5 mb-3 text-center">
-
-                      <h1 class="mb-4" data-aos="fade-up">Инструменты</h1>
-					  <section id="pricing" class="section-bg">
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-right">
-              <h3>Инструменты - 1</h3>
-              <h4><sup>$</sup>3<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>100 лопат + 100 топоров + 100 пил</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-
-              </ul>
-              <a href="inst1.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box " data-aos="fade-up">
-              <h3>Инструменты - 2</h3>
-              <h4><sup>$</sup>5<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>250 лопат + 250 топоров + 250 пил</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="inst2.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Инструменты - 3</h3>
-              <h4><sup>$</sup>10<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>500 лопат + 500 топоров + 500 пил</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="inst3.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Инструменты - 4</h3>
-              <h4><sup>$</sup>10<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>250 ключей</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="inst4.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Инструменты - 4_1</h3>
-              <h4><sup>$</sup>5<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>125 ключей</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="inst5.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Инструменты - 5</h3>
-              <h4><sup>$</sup>20<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>350 ключей + 250 лопат + 250 топоров + 250 пил</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="inst6.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Инструменты - 6</h3>
-              <h4><sup>$</sup>30<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>500 ключей + 500 лопат + 500 топоров + 500 пил</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="inst7.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-                    </div>
-					
-					<div class="col-lg-12 col-12 py-5 mt-5 mb-3 text-center">
-
-                      <h1 class="mb-4" data-aos="fade-up">Боксы</h1>
-					  <section id="pricing" class="section-bg">
-		<div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-right">
-              <h3>Бокс - 1</h3>
-              <h4><sup>$</sup>5<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>25.000 энергии + 150 рубинов + 25 пил + 25 лопат + 25 топоров</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-
-              </ul>
-              <a href="box1.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box " data-aos="fade-up">
-              <h3>Бокс - 2</h3>
-              <h4><sup>$</sup>7<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>50.000 энергии + 250 рубинов + 25 ключей + 25 пил + 25 лопат + 25 топоров</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="box2.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Бокс - 3</h3>
-              <h4><sup>$</sup>10<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>100.000 энергии + 350 рубинов + 25 ключей + 25 пил + 25 лопат + 25 топоров</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="box3.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Бокс - 4</h3>
-              <h4><sup>$</sup>15<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>150.000 энергии + 500 рубинов + 50 ключей + 50 пил + 50 лопат + 50 топоров</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="box4.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6">
-            <div class="box" data-aos="fade-left">
-              <h3>Бокс - 5</h3>
-              <h4><sup>$</sup>20<span></span></h4>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i>Вы получите:</li>
-                <li><i class="ion-android-checkmark-circle"></i>150.000 энергии + 1.000 рубинов + 100 ключей + 100 пил + 100 лопат + 100 топоров</li>
-                <li><i class="ion-android-checkmark-circle"></i></li>
-              </ul>
-              <a href="box5.html" class="get-started-btn">Сделать заказ</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-                    </div>
-
+               <a class="navbar-brand" href="#">
+                    <i class="fas fa-fish"></i> Family Island Взлом
+               </a>
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                         <li class="nav-item">
+                              <a class="nav-link" href="index.html">Главная</a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link" href="contact.html">Помощь</a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link" href="https://t.me/+FydLQFGeEvNlZWUy">Telegram</a>
+                         </li>
+						 <li class="nav-item">
+                              <a class="nav-link" href="https://t.me/reviews_fi">Отзывы</a>
+                         </li>
+                    </ul>
                </div>
           </div>
-     </section>
+     </nav>
 
-	<footer class="footer">
-        <div class="footer-container">
-		<p>Еще делаем взломы для других игр:</p>
-		<br>
-            <a href="https://sviter-pro.github.io/GameFD/" class="footer-button">
-                <img src="images/PaKXLa0V_400x400-removebg-preview.png" alt="FishDom">
-                <span>FishDom</span>
-            </a>
-            
-            
-        </div>
-    </footer>
+     <!-- Основной контент -->
+     <div class="container py-5">
+          <!-- Секция с монетами -->
+          <div class="row">
+               <div class="col-12">
+                    <div class="section-header">
+                         <h1>Энергия</h1>
+                    </div>
+               </div>
+               <div class="row" id="coins-container">
+                    <div class="loading-message">Загрузка энергии...</div>
+               </div>
+          </div>
+          
+          <!-- Секция с рубинами -->
+          <div class="row mt-5">
+               <div class="col-12">
+                    <div class="section-header">
+                         <h1>Рубины</h1>
+                    </div>
+               </div>
+               <div class="row" id="rubies-container">
+                    <div class="loading-message">Загрузка рубин...</div>
+               </div>
+          </div>
+          
+          <!-- Секция с ваучерами -->
+          <div class="row mt-5">
+               <div class="col-12">
+                    <div class="section-header">
+                         <h1>Энергия + Рубины</h1>
+                    </div>
+               </div>
+               <div class="row" id="en_rub-container">
+                    <div class="loading-message">Загрузка Энергии + Рубин...</div>
+               </div>
+          </div>
+		  <!-- Секция с ваучерами -->
+          <div class="row mt-5">
+               <div class="col-12">
+                    <div class="section-header">
+                         <h1>Инструменты</h1>
+                    </div>
+               </div>
+               <div class="row" id="instr-container">
+                    <div class="loading-message">Загрузка инструментов...</div>
+               </div>
+          </div>
+		  <!-- Секция с ваучерами -->
+          <div class="row mt-5">
+               <div class="col-12">
+                    <div class="section-header">
+                         <h1>Боксы</h1>
+                    </div>
+               </div>
+               <div class="row" id="box-container">
+                    <div class="loading-message">Загрузка боксов...</div>
+               </div>
+          </div>
+     </div>
 
-     <!-- SCRIPTS -->
-     <script src="js/jquery.min.js"></script>
-     <script src="js/bootstrap.min.js"></script>
-     <script src="js/aos.js"></script>
-     <script src="js/owl.carousel.min.js"></script>
-     <script src="js/custom.js"></script>
-	 
+     <!-- Футер -->
+     <footer class="bg-dark text-white py-4">
+          <div class="container text-center">
+               <p>Другие наши взломы:</p>
+               <a href="https://sviter-pro.github.io/GameFI/" class="btn btn-outline-light">
+                    Family Island
+               </a>
+			   <a href="#" class="btn btn-outline-light">
+                    Royal Match
+               </a>
+          </div>
+     </footer>
 
+     <!-- Скрипты -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
+     <script>
+          // Конфигурация Firebase (ЗАМЕНИТЕ НА СВОЮ!)
+          const firebaseConfig = {
+                apiKey: "AIzaSyAeL_donbsrMtreNe1HTyXbpo8rko4VqBc",
+				authDomain: "basegamesorders.firebaseapp.com",
+				databaseURL: "https://basegamesorders-default-rtdb.firebaseio.com",
+				projectId: "basegamesorders",
+				storageBucket: "basegamesorders.firebasestorage.app",
+				messagingSenderId: "469058322867",
+				appId: "1:469058322867:web:2a0260076bb68ef88d4bc6",
+				measurementId: "G-H44VJ1JH8X"
+          };
+
+          // Инициализация Firebase
+          try {
+               firebase.initializeApp(firebaseConfig);
+               console.log("Firebase initialized successfully");
+          } catch (error) {
+               console.error("Firebase initialization error:", error);
+          }
+
+          const database = firebase.database();
+
+          // Функция для создания HTML карточки товара
+          async function createProductCard(product, category, index) {
+               if (!product) return '';
+               
+               const exchangeRate = 82; // Фиксированный курс для примера
+               const dollarAmount = parseFloat(product.sum.replace('$', '').replace(/\s/g, '').trim());
+               const rubleAmount = Math.round(dollarAmount * exchangeRate);
+               
+               // Генерируем ссылку с параметрами
+               const productType = encodeURIComponent(category);
+               const productId = index + 1; // ID становится 1, 2 или 3
+               const orderLink = `order.html?type=${productType}&id=${productId}`;
+               
+               return `
+               <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                         <h3 class="product-title">${product.name || 'Товар'}</h3>
+                         <div class="product-price">$${dollarAmount || '0'}</div>
+                         <div class="product-price-rub">≈ ${rubleAmount} руб</div>
+                         <ul class="product-features">
+                              <li><i class="fas fa-check-circle"></i> ${product.subname || 'Вы получите:'}</li>
+                              <li><i class="fas fa-check-circle"></i> ${product.opis || 'Описание'}</li>
+                         </ul>
+                         <a href="${orderLink}" class="order-btn">Заказать</a>
+                    </div>
+               </div>
+               `;
+          }
+
+          // Функция загрузки данных
+          async function loadProducts() {
+               try {
+                    console.log("Загрузка данных из Firebase...");
+                    
+                    const snapshot = await database.ref('FamilyIsland/Orders').once('value');
+                    const data = snapshot.val();
+                    
+                    if (!data) {
+                         throw new Error("Данные не получены из Firebase");
+                    }
+                    
+                    console.log("Данные получены:", data);
+                    
+                    // Обработка энергии
+                    const coinsContainer = document.getElementById('coins-container');
+                    if (data['Энергия']) {
+                         coinsContainer.innerHTML = '';
+                         let index = 0;
+                         
+                         for (const key in data['Энергия']) {
+                              const cardHtml = await createProductCard(data['Энергия'][key], 'Энергия', index);
+                              coinsContainer.innerHTML += cardHtml;
+                              index++;
+                         }
+                    }
+                    
+                    // Обработка рубинов
+                    const rubiesContainer = document.getElementById('rubies-container');
+                    if (data['Рубины']) {
+                         rubiesContainer.innerHTML = '';
+                         let index = 0;
+                         
+                         for (const key in data['Рубины']) {
+                              const cardHtml = await createProductCard(data['Рубины'][key], 'Рубины', index);
+                              rubiesContainer.innerHTML += cardHtml;
+                              index++;
+                         }
+                    }
+                    
+                    // Обработка Эн+руб
+                    const en_rubContainer = document.getElementById('en_rub-container');
+                    if (data['Энергия_Рубины']) {
+                         en_rubContainer.innerHTML = '';
+                         let index = 0;
+                         
+                         for (const key in data['Энергия_Рубины']) {
+                              const cardHtml = await createProductCard(data['Энергия_Рубины'][key], 'Энергия_Рубины', index);
+                              en_rubContainer.innerHTML += cardHtml;
+                              index++;
+                         }
+                    }
+					
+					// Обработка инстр
+                    const instrContainer = document.getElementById('instr-container');
+                    if (data['Инструменты']) {
+                         instrContainer.innerHTML = '';
+                         let index = 0;
+                         
+                         for (const key in data['Инструменты']) {
+                              const cardHtml = await createProductCard(data['Инструменты'][key], 'Инструменты', index);
+                              instrContainer.innerHTML += cardHtml;
+                              index++;
+                         }
+                    }
+					
+					// Обработка боксы
+                    const boxContainer = document.getElementById('box-container');
+                    if (data['Боксы']) {
+                         boxContainer.innerHTML = '';
+                         let index = 0;
+                         
+                         for (const key in data['Боксы']) {
+                              const cardHtml = await createProductCard(data['Боксы'][key], 'Боксы', index);
+                              boxContainer.innerHTML += cardHtml;
+                              index++;
+                         }
+                    }
+                    
+               } catch (error) {
+                    console.error("Ошибка загрузки:", error);
+                    document.getElementById('coins-container').innerHTML = 
+                         '<div class="col-12 error-message">Ошибка загрузки данных</div>';
+                    document.getElementById('rubies-container').innerHTML = 
+                         '<div class="col-12 error-message">Ошибка загрузки данных</div>';
+                    document.getElementById('en_rub').innerHTML = 
+                         '<div class="col-12 error-message">Ошибка загрузки данных</div>';
+						 document.getElementById('instr-container').innerHTML = 
+                         '<div class="col-12 error-message">Ошибка загрузки данных</div>';
+						 document.getElementById('box-container').innerHTML = 
+                         '<div class="col-12 error-message">Ошибка загрузки данных</div>';
+						 
+               }
+          }
+
+          // Загрузка данных при готовности DOM
+          document.addEventListener('DOMContentLoaded', function() {
+               if (typeof firebase === 'undefined') {
+                    console.error("Firebase не загружен");
+                    return;
+               }
+               
+               loadProducts();
+          });
+
+          // Функция для генерации ID заказа (используется на странице order.html)
+          function generateOrderId() {
+               const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+               let result = '';
+               for (let i = 0; i < 6; i++) {
+                    result += chars.charAt(Math.floor(Math.random() * chars.length));
+               }
+               return 'ORD-' + result;
+          }
+     </script>
 </body>
 </html>
