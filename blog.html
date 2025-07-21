@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-     <title>Заказать взлом для игры Family Island</title>
+     <title>Помощь для игры Family Island</title>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -23,6 +23,12 @@
                margin-bottom: 30px;
                height: 100%;
                transition: transform 0.3s ease;
+          }
+          
+          /* Стиль для временных тарифов */
+          .special-card {
+               background: #fff8e6;
+               border: 2px solid #ffd700;
           }
           
           .product-card:hover {
@@ -123,6 +129,10 @@
                font-size: 18px;
                color: #e74c3c;
           }
+          
+          .empty-section {
+               display: none; /* Скрываем пустые секции */
+          }
      </style>
 </head>
 <body>
@@ -131,7 +141,7 @@
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container">
                <a class="navbar-brand" href="#">
-                    <i class="fas fa-fish"></i> Family Island Взлом
+                    <i class="fas fa-fish"></i>Помощь в игре Family Island 
                </a>
                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -147,7 +157,7 @@
                          <li class="nav-item">
                               <a class="nav-link" href="https://t.me/+FydLQFGeEvNlZWUy">Telegram</a>
                          </li>
-						 <li class="nav-item">
+                         <li class="nav-item">
                               <a class="nav-link" href="https://t.me/reviews_fi">Отзывы</a>
                          </li>
                     </ul>
@@ -157,8 +167,21 @@
 
      <!-- Основной контент -->
      <div class="container py-5">
-          <!-- Секция с монетами -->
-          <div class="row">
+     
+          <!-- Секция с временными тарифами -->
+          <div class="row" id="vremtarif-section">
+               <div class="col-12">
+                    <div class="section-header">
+                         <h1>Временные тарифы</h1>
+                    </div>
+               </div>
+               <div class="row" id="vremtarif-container">
+                    <div class="loading-message">Загрузка временных тарифов...</div>
+               </div>
+          </div>
+          
+          <!-- Секция с энергией -->
+          <div class="row" id="energy-section">
                <div class="col-12">
                     <div class="section-header">
                          <h1>Энергия</h1>
@@ -170,7 +193,7 @@
           </div>
           
           <!-- Секция с рубинами -->
-          <div class="row mt-5">
+          <div class="row mt-5" id="rubies-section">
                <div class="col-12">
                     <div class="section-header">
                          <h1>Рубины</h1>
@@ -181,8 +204,8 @@
                </div>
           </div>
           
-          <!-- Секция с ваучерами -->
-          <div class="row mt-5">
+          <!-- Секция с энергией + рубины -->
+          <div class="row mt-5" id="energy-rubies-section">
                <div class="col-12">
                     <div class="section-header">
                          <h1>Энергия + Рубины</h1>
@@ -192,8 +215,9 @@
                     <div class="loading-message">Загрузка Энергии + Рубин...</div>
                </div>
           </div>
-		  <!-- Секция с ваучерами -->
-          <div class="row mt-5">
+          
+          <!-- Секция с инструментами -->
+          <div class="row mt-5" id="instruments-section">
                <div class="col-12">
                     <div class="section-header">
                          <h1>Инструменты</h1>
@@ -203,8 +227,9 @@
                     <div class="loading-message">Загрузка инструментов...</div>
                </div>
           </div>
-		  <!-- Секция с ваучерами -->
-          <div class="row mt-5">
+          
+          <!-- Секция с боксами -->
+          <div class="row mt-5" id="boxes-section">
                <div class="col-12">
                     <div class="section-header">
                          <h1>Боксы</h1>
@@ -219,14 +244,14 @@
      <!-- Футер -->
      <footer class="bg-dark text-white py-4">
           <div class="container text-center">
-               <p>Другие наши взломы:</p>
+               <p>Другие наши игры:</p>
                <a href="https://sviter-pro.github.io/FameFD/" class="btn btn-outline-light">
                     FishDom
                </a>
-			   <a href="https://sviter-pro.github.io/GameRM/" class="btn btn-outline-light">
+               <a href="https://sviter-pro.github.io/GameRM/" class="btn btn-outline-light">
                     Royal Match
                </a>
-		  <a href="https://sviter-pro.github.io/FameTS/" class="btn btn-outline-light">
+               <a href="https://sviter-pro.github.io/FameTS/" class="btn btn-outline-light">
                     TownShip
                </a>
           </div>
@@ -237,16 +262,16 @@
      <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
      <script>
-          // Конфигурация Firebase (ЗАМЕНИТЕ НА СВОЮ!)
+          // Конфигурация Firebase
           const firebaseConfig = {
-                apiKey: "AIzaSyAeL_donbsrMtreNe1HTyXbpo8rko4VqBc",
-				authDomain: "basegamesorders.firebaseapp.com",
-				databaseURL: "https://basegamesorders-default-rtdb.firebaseio.com",
-				projectId: "basegamesorders",
-				storageBucket: "basegamesorders.firebasestorage.app",
-				messagingSenderId: "469058322867",
-				appId: "1:469058322867:web:2a0260076bb68ef88d4bc6",
-				measurementId: "G-H44VJ1JH8X"
+               apiKey: "AIzaSyAeL_donbsrMtreNe1HTyXbpo8rko4VqBc",
+               authDomain: "basegamesorders.firebaseapp.com",
+               databaseURL: "https://basegamesorders-default-rtdb.firebaseio.com",
+               projectId: "basegamesorders",
+               storageBucket: "basegamesorders.firebasestorage.app",
+               messagingSenderId: "469058322867",
+               appId: "1:469058322867:web:2a0260076bb68ef88d4bc6",
+               measurementId: "G-H44VJ1JH8X"
           };
 
           // Инициализация Firebase
@@ -259,22 +284,46 @@
 
           const database = firebase.database();
 
+          // Глобальная переменная для курса
+          let exchangeRate = 82; // Значение по умолчанию
+
+          // Функция для загрузки курса из Firebase
+          async function loadExchangeRate() {
+               try {
+                    const snapshot = await database.ref('Preferences/curs_banka').once('value');
+                    const rate = snapshot.val();
+                    if (rate) {
+                         exchangeRate = parseFloat(rate);
+                         console.log("Курс загружен:", exchangeRate);
+                    }
+               } catch (error) {
+                    console.error("Ошибка загрузки курса:", error);
+               }
+          }
+
           // Функция для создания HTML карточки товара
           async function createProductCard(product, category, index) {
                if (!product) return '';
                
-               const exchangeRate = 82; // Фиксированный курс для примера
+               // Проверяем, нужно ли скрывать карточку
+               if (product.opis === "пока ничего нет" || parseFloat(product.sum.replace('$', '').replace(/\s/g, '').trim()) === 0) {
+                    return '';
+               }
+               
                const dollarAmount = parseFloat(product.sum.replace('$', '').replace(/\s/g, '').trim());
                const rubleAmount = Math.round(dollarAmount * exchangeRate);
                
                // Генерируем ссылку с параметрами
                const productType = encodeURIComponent(category);
-               const productId = index + 1; // ID становится 1, 2 или 3
+               const productId = index + 1;
                const orderLink = `order.html?type=${productType}&id=${productId}`;
+               
+               // Определяем класс для карточки в зависимости от категории
+               const cardClass = category === 'Временный_тариф' ? 'product-card special-card' : 'product-card';
                
                return `
                <div class="col-lg-4 col-md-6">
-                    <div class="product-card">
+                    <div class="${cardClass}">
                          <h3 class="product-title">${product.name || 'Товар'}</h3>
                          <div class="product-price">$${dollarAmount || '0'}</div>
                          <div class="product-price-rub">≈ ${rubleAmount} руб</div>
@@ -293,6 +342,10 @@
                try {
                     console.log("Загрузка данных из Firebase...");
                     
+                    // Сначала загружаем курс
+                    await loadExchangeRate();
+                    
+                    // Затем загружаем продукты
                     const snapshot = await database.ref('FamilyIsland/Orders').once('value');
                     const data = snapshot.val();
                     
@@ -302,84 +355,164 @@
                     
                     console.log("Данные получены:", data);
                     
+                    // Обработка временных тарифов
+                    const vrtarContainer = document.getElementById('vremtarif-container');
+                    const vrtarSection = document.getElementById('vremtarif-section');
+                    if (data['Временный_тариф']) {
+                         vrtarContainer.innerHTML = '';
+                         let index = 0;
+                         let hasValidCards = false;
+                         
+                         for (const key in data['Временный_тариф']) {
+                              const cardHtml = await createProductCard(data['Временный_тариф'][key], 'Временный_тариф', index);
+                              if (cardHtml) {
+                                   vrtarContainer.innerHTML += cardHtml;
+                                   hasValidCards = true;
+                              }
+                              index++;
+                         }
+                         
+                         if (!hasValidCards) {
+                              vrtarSection.classList.add('empty-section');
+                         }
+                    } else {
+                         vrtarSection.classList.add('empty-section');
+                    }
+                    
                     // Обработка энергии
                     const coinsContainer = document.getElementById('coins-container');
+                    const energySection = document.getElementById('energy-section');
                     if (data['Энергия']) {
                          coinsContainer.innerHTML = '';
                          let index = 0;
+                         let hasValidCards = false;
                          
                          for (const key in data['Энергия']) {
                               const cardHtml = await createProductCard(data['Энергия'][key], 'Энергия', index);
-                              coinsContainer.innerHTML += cardHtml;
+                              if (cardHtml) {
+                                   coinsContainer.innerHTML += cardHtml;
+                                   hasValidCards = true;
+                              }
                               index++;
                          }
+                         
+                         if (!hasValidCards) {
+                              energySection.classList.add('empty-section');
+                         }
+                    } else {
+                         energySection.classList.add('empty-section');
                     }
                     
                     // Обработка рубинов
                     const rubiesContainer = document.getElementById('rubies-container');
+                    const rubiesSection = document.getElementById('rubies-section');
                     if (data['Рубины']) {
                          rubiesContainer.innerHTML = '';
                          let index = 0;
+                         let hasValidCards = false;
                          
                          for (const key in data['Рубины']) {
                               const cardHtml = await createProductCard(data['Рубины'][key], 'Рубины', index);
-                              rubiesContainer.innerHTML += cardHtml;
+                              if (cardHtml) {
+                                   rubiesContainer.innerHTML += cardHtml;
+                                   hasValidCards = true;
+                              }
                               index++;
                          }
+                         
+                         if (!hasValidCards) {
+                              rubiesSection.classList.add('empty-section');
+                         }
+                    } else {
+                         rubiesSection.classList.add('empty-section');
                     }
                     
-                    // Обработка Эн+руб
-                    const en_rubContainer = document.getElementById('en_rub-container');
+                    // Обработка Энергия + Рубины
+                    const enRubContainer = document.getElementById('en_rub-container');
+                    const enRubSection = document.getElementById('energy-rubies-section');
                     if (data['Энергия_Рубины']) {
-                         en_rubContainer.innerHTML = '';
+                         enRubContainer.innerHTML = '';
                          let index = 0;
+                         let hasValidCards = false;
                          
                          for (const key in data['Энергия_Рубины']) {
                               const cardHtml = await createProductCard(data['Энергия_Рубины'][key], 'Энергия_Рубины', index);
-                              en_rubContainer.innerHTML += cardHtml;
+                              if (cardHtml) {
+                                   enRubContainer.innerHTML += cardHtml;
+                                   hasValidCards = true;
+                              }
                               index++;
                          }
+                         
+                         if (!hasValidCards) {
+                              enRubSection.classList.add('empty-section');
+                         }
+                    } else {
+                         enRubSection.classList.add('empty-section');
                     }
-					
-					// Обработка инстр
+                    
+                    // Обработка инструментов
                     const instrContainer = document.getElementById('instr-container');
+                    const instrSection = document.getElementById('instruments-section');
                     if (data['Инструменты']) {
                          instrContainer.innerHTML = '';
                          let index = 0;
+                         let hasValidCards = false;
                          
                          for (const key in data['Инструменты']) {
                               const cardHtml = await createProductCard(data['Инструменты'][key], 'Инструменты', index);
-                              instrContainer.innerHTML += cardHtml;
+                              if (cardHtml) {
+                                   instrContainer.innerHTML += cardHtml;
+                                   hasValidCards = true;
+                              }
                               index++;
                          }
+                         
+                         if (!hasValidCards) {
+                              instrSection.classList.add('empty-section');
+                         }
+                    } else {
+                         instrSection.classList.add('empty-section');
                     }
-					
-					// Обработка боксы
+                    
+                    // Обработка боксов
                     const boxContainer = document.getElementById('box-container');
+                    const boxSection = document.getElementById('boxes-section');
                     if (data['Боксы']) {
                          boxContainer.innerHTML = '';
                          let index = 0;
+                         let hasValidCards = false;
                          
                          for (const key in data['Боксы']) {
                               const cardHtml = await createProductCard(data['Боксы'][key], 'Боксы', index);
-                              boxContainer.innerHTML += cardHtml;
+                              if (cardHtml) {
+                                   boxContainer.innerHTML += cardHtml;
+                                   hasValidCards = true;
+                              }
                               index++;
                          }
+                         
+                         if (!hasValidCards) {
+                              boxSection.classList.add('empty-section');
+                         }
+                    } else {
+                         boxSection.classList.add('empty-section');
                     }
                     
                } catch (error) {
                     console.error("Ошибка загрузки:", error);
+                    document.getElementById('vremtarif-container').innerHTML = 
+                         '<div class="col-12 error-message">Ошибка загрузки данных</div>';
                     document.getElementById('coins-container').innerHTML = 
                          '<div class="col-12 error-message">Ошибка загрузки данных</div>';
                     document.getElementById('rubies-container').innerHTML = 
                          '<div class="col-12 error-message">Ошибка загрузки данных</div>';
-                    document.getElementById('en_rub').innerHTML = 
+                    document.getElementById('en_rub-container').innerHTML = 
                          '<div class="col-12 error-message">Ошибка загрузки данных</div>';
-						 document.getElementById('instr-container').innerHTML = 
+                    document.getElementById('instr-container').innerHTML = 
                          '<div class="col-12 error-message">Ошибка загрузки данных</div>';
-						 document.getElementById('box-container').innerHTML = 
+                    document.getElementById('box-container').innerHTML = 
                          '<div class="col-12 error-message">Ошибка загрузки данных</div>';
-						 
                }
           }
 
@@ -393,7 +526,7 @@
                loadProducts();
           });
 
-          // Функция для генерации ID заказа (используется на странице order.html)
+          // Функция для генерации ID заказа
           function generateOrderId() {
                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
                let result = '';
