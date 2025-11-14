@@ -168,7 +168,7 @@
      <!-- Основной контент -->
      <div class="container py-5">
      
-          <!-- Секция с временными тарифами -->
+          <!-- Секция с временными тарифов -->
           <div class="row" id="vremtarif-section">
                <div class="col-12">
                     <div class="section-header">
@@ -244,30 +244,15 @@
      <!-- Футер -->
      <footer class="bg-dark text-white py-4">
           <div class="container text-center">
-               <p>Другие наши игры:</p>
+               <p>Другие наши взломы:</p>
                <a href="https://sviter-pro.github.io/FameFD/" class="btn btn-outline-light">
                     FishDom
                </a>
-			   <a href="https://sviter-pro.github.io/FameHS/" class="btn btn-outline-light">
-                    HomeScapes
+               <a href="https://sviter-pro.github.io/GameRM/" class="btn btn-outline-light">
+                    Royal Match
                </a>
-			   <a href="https://sviter-pro.github.io/GameRM/" class="btn btn-outline-light">
-                    RoyalMatch
-               </a>
-			   <a href="https://sviter-pro.github.io/GameTS/" class="btn btn-outline-light">
+               <a href="https://sviter-pro.github.io/FameTS/" class="btn btn-outline-light">
                     TownShip
-               </a>
-			   <a href="https://sviter-pro.github.io/GameGS/" class="btn btn-outline-light">
-                    GardenScapes
-               </a>
-			   <a href="https://sviter-pro.github.io/GameMaMa/" class="btn btn-outline-light">
-                    Manor Matters
-               </a>
-			   <a href="https://sviter-pro.github.io/GameMyMa/" class="btn btn-outline-light">
-                    Mystery Matters
-               </a>
-			  <a href="https://sviter-pro.github.io/GameBF/" class="btn btn-outline-light">
-                    Best Fiends
                </a>
           </div>
      </footer>
@@ -290,14 +275,19 @@
           };
 
           // Инициализация Firebase
+          let database;
           try {
-               firebase.initializeApp(firebaseConfig);
+               // Проверяем, не инициализирован ли Firebase уже
+               if (!firebase.apps.length) {
+                    firebase.initializeApp(firebaseConfig);
+               } else {
+                    firebase.app(); // используем существующее приложение
+               }
+               database = firebase.database();
                console.log("Firebase initialized successfully");
           } catch (error) {
                console.error("Firebase initialization error:", error);
           }
-
-          const database = firebase.database();
 
           // Глобальная переменная для курса
           let exchangeRate = 82; // Значение по умолчанию
@@ -307,9 +297,11 @@
                try {
                     const snapshot = await database.ref('Preferences/curs_banka').once('value');
                     const rate = snapshot.val();
-                    if (rate) {
+                    if (rate && !isNaN(rate)) {
                          exchangeRate = parseFloat(rate);
                          console.log("Курс загружен:", exchangeRate);
+                    } else {
+                         console.log("Курс не найден, используется значение по умолчанию:", exchangeRate);
                     }
                } catch (error) {
                     console.error("Ошибка загрузки курса:", error);
@@ -317,45 +309,98 @@
           }
 
           // Функция для создания HTML карточки товара
-          async function createProductCard(product, category, index) {
+          function createProductCard(product, category, index) {
                if (!product) return '';
                
-               // Проверяем, нужно ли скрывать карточку
-               if (product.opis === "пока ничего нет" || parseFloat(product.sum.replace('$', '').replace(/\s/g, '').trim()) === 0) {
+               // Проверяем поля продукта
+               if (!product.sum || !product.name) {
                     return '';
                }
                
-               const dollarAmount = parseFloat(product.sum.replace('$', '').replace(/\s/g, '').trim());
-               const rubleAmount = Math.round(dollarAmount * exchangeRate);
+               // Проверяем, нужно ли скрывать карточку
+               if (product.opis === "пока ничего нет" || product.sum === "$0" || product.sum === "0") {
+                    return '';
+               }
                
-               // Генерируем ссылку с параметрами
-               const productType = encodeURIComponent(category);
-               const productId = index + 1;
-               const orderLink = `order.html?type=${productType}&id=${productId}`;
-               
-               // Определяем класс для карточки в зависимости от категории
-               const cardClass = category === 'Временный_тариф' ? 'product-card special-card' : 'product-card';
-               
-               return `
-               <div class="col-lg-4 col-md-6">
-                    <div class="${cardClass}">
-                         <h3 class="product-title">${product.name || 'Товар'}</h3>
-                         <div class="product-price">$${dollarAmount || '0'}</div>
-                         <div class="product-price-rub">≈ ${rubleAmount} руб</div>
-                         <ul class="product-features">
-                              <li><i class="fas fa-check-circle"></i> ${product.subname || 'Вы получите:'}</li>
-                              <li><i class="fas fa-check-circle"></i> ${product.opis || 'Описание'}</li>
-                         </ul>
-                         <a href="${orderLink}" class="order-btn">Заказать</a>
+               try {
+                    const dollarAmount = parseFloat(product.sum.toString().replace('$', '').replace(/\s/g, '').trim());
+                    
+                    if (isNaN(dollarAmount) || dollarAmount === 0) {
+                         return '';
+                    }
+                    
+                    const rubleAmount = Math.round(dollarAmount * exchangeRate);
+                    
+                    // Генерируем ссылку с параметрами
+                    const productType = encodeURIComponent(category);
+                    const productId = index + 1;
+                    const orderLink = `order.html?type=${productType}&id=${productId}`;
+                    
+                    // Определяем класс для карточки в зависимости от категории
+                    const cardClass = category === 'Временный_тариф' ? 'product-card special-card' : 'product-card';
+                    
+                    return `
+                    <div class="col-lg-4 col-md-6">
+                         <div class="${cardClass}">
+                              <h3 class="product-title">${product.name}</h3>
+                              <div class="product-price">$${dollarAmount}</div>
+                              <div class="product-price-rub">≈ ${rubleAmount} руб</div>
+                              <ul class="product-features">
+                                   <li><i class="fas fa-check-circle"></i> ${product.subname || 'Вы получите:'}</li>
+                                   <li><i class="fas fa-check-circle"></i> ${product.opis || 'Описание'}</li>
+                              </ul>
+                              <a href="${orderLink}" class="order-btn">Заказать</a>
+                         </div>
                     </div>
-               </div>
-               `;
+                    `;
+               } catch (error) {
+                    console.error("Ошибка создания карточки:", error);
+                    return '';
+               }
+          }
+
+          // Функция для обработки категории продуктов
+          function processCategory(categoryData, categoryName, containerId, sectionId) {
+               const container = document.getElementById(containerId);
+               const section = document.getElementById(sectionId);
+               
+               if (!categoryData || Object.keys(categoryData).length === 0) {
+                    section.classList.add('empty-section');
+                    return;
+               }
+               
+               container.innerHTML = '';
+               let index = 0;
+               let hasValidCards = false;
+               
+               for (const key in categoryData) {
+                    if (categoryData.hasOwnProperty(key)) {
+                         const product = categoryData[key];
+                         const cardHtml = createProductCard(product, categoryName, index);
+                         
+                         if (cardHtml && cardHtml.trim() !== '') {
+                              container.innerHTML += cardHtml;
+                              hasValidCards = true;
+                         }
+                         index++;
+                    }
+               }
+               
+               if (!hasValidCards) {
+                    section.classList.add('empty-section');
+               } else {
+                    section.classList.remove('empty-section');
+               }
           }
 
           // Функция загрузки данных
           async function loadProducts() {
                try {
                     console.log("Загрузка данных из Firebase...");
+                    
+                    if (!database) {
+                         throw new Error("База данных не инициализирована");
+                    }
                     
                     // Сначала загружаем курс
                     await loadExchangeRate();
@@ -370,164 +415,24 @@
                     
                     console.log("Данные получены:", data);
                     
-                    // Обработка временных тарифов
-                    const vrtarContainer = document.getElementById('vremtarif-container');
-                    const vrtarSection = document.getElementById('vremtarif-section');
-                    if (data['Временный_тариф']) {
-                         vrtarContainer.innerHTML = '';
-                         let index = 0;
-                         let hasValidCards = false;
-                         
-                         for (const key in data['Временный_тариф']) {
-                              const cardHtml = await createProductCard(data['Временный_тариф'][key], 'Временный_тариф', index);
-                              if (cardHtml) {
-                                   vrtarContainer.innerHTML += cardHtml;
-                                   hasValidCards = true;
-                              }
-                              index++;
-                         }
-                         
-                         if (!hasValidCards) {
-                              vrtarSection.classList.add('empty-section');
-                         }
-                    } else {
-                         vrtarSection.classList.add('empty-section');
-                    }
-                    
-                    // Обработка энергии
-                    const coinsContainer = document.getElementById('coins-container');
-                    const energySection = document.getElementById('energy-section');
-                    if (data['Энергия']) {
-                         coinsContainer.innerHTML = '';
-                         let index = 0;
-                         let hasValidCards = false;
-                         
-                         for (const key in data['Энергия']) {
-                              const cardHtml = await createProductCard(data['Энергия'][key], 'Энергия', index);
-                              if (cardHtml) {
-                                   coinsContainer.innerHTML += cardHtml;
-                                   hasValidCards = true;
-                              }
-                              index++;
-                         }
-                         
-                         if (!hasValidCards) {
-                              energySection.classList.add('empty-section');
-                         }
-                    } else {
-                         energySection.classList.add('empty-section');
-                    }
-                    
-                    // Обработка рубинов
-                    const rubiesContainer = document.getElementById('rubies-container');
-                    const rubiesSection = document.getElementById('rubies-section');
-                    if (data['Рубины']) {
-                         rubiesContainer.innerHTML = '';
-                         let index = 0;
-                         let hasValidCards = false;
-                         
-                         for (const key in data['Рубины']) {
-                              const cardHtml = await createProductCard(data['Рубины'][key], 'Рубины', index);
-                              if (cardHtml) {
-                                   rubiesContainer.innerHTML += cardHtml;
-                                   hasValidCards = true;
-                              }
-                              index++;
-                         }
-                         
-                         if (!hasValidCards) {
-                              rubiesSection.classList.add('empty-section');
-                         }
-                    } else {
-                         rubiesSection.classList.add('empty-section');
-                    }
-                    
-                    // Обработка Энергия + Рубины
-                    const enRubContainer = document.getElementById('en_rub-container');
-                    const enRubSection = document.getElementById('energy-rubies-section');
-                    if (data['Энергия_Рубины']) {
-                         enRubContainer.innerHTML = '';
-                         let index = 0;
-                         let hasValidCards = false;
-                         
-                         for (const key in data['Энергия_Рубины']) {
-                              const cardHtml = await createProductCard(data['Энергия_Рубины'][key], 'Энергия_Рубины', index);
-                              if (cardHtml) {
-                                   enRubContainer.innerHTML += cardHtml;
-                                   hasValidCards = true;
-                              }
-                              index++;
-                         }
-                         
-                         if (!hasValidCards) {
-                              enRubSection.classList.add('empty-section');
-                         }
-                    } else {
-                         enRubSection.classList.add('empty-section');
-                    }
-                    
-                    // Обработка инструментов
-                    const instrContainer = document.getElementById('instr-container');
-                    const instrSection = document.getElementById('instruments-section');
-                    if (data['Инструменты']) {
-                         instrContainer.innerHTML = '';
-                         let index = 0;
-                         let hasValidCards = false;
-                         
-                         for (const key in data['Инструменты']) {
-                              const cardHtml = await createProductCard(data['Инструменты'][key], 'Инструменты', index);
-                              if (cardHtml) {
-                                   instrContainer.innerHTML += cardHtml;
-                                   hasValidCards = true;
-                              }
-                              index++;
-                         }
-                         
-                         if (!hasValidCards) {
-                              instrSection.classList.add('empty-section');
-                         }
-                    } else {
-                         instrSection.classList.add('empty-section');
-                    }
-                    
-                    // Обработка боксов
-                    const boxContainer = document.getElementById('box-container');
-                    const boxSection = document.getElementById('boxes-section');
-                    if (data['Боксы']) {
-                         boxContainer.innerHTML = '';
-                         let index = 0;
-                         let hasValidCards = false;
-                         
-                         for (const key in data['Боксы']) {
-                              const cardHtml = await createProductCard(data['Боксы'][key], 'Боксы', index);
-                              if (cardHtml) {
-                                   boxContainer.innerHTML += cardHtml;
-                                   hasValidCards = true;
-                              }
-                              index++;
-                         }
-                         
-                         if (!hasValidCards) {
-                              boxSection.classList.add('empty-section');
-                         }
-                    } else {
-                         boxSection.classList.add('empty-section');
-                    }
+                    // Обработка всех категорий
+                    processCategory(data['Временный_тариф'], 'Временный_тариф', 'vremtarif-container', 'vremtarif-section');
+                    processCategory(data['Энергия'], 'Энергия', 'coins-container', 'energy-section');
+                    processCategory(data['Рубины'], 'Рубины', 'rubies-container', 'rubies-section');
+                    processCategory(data['Энергия_Рубины'], 'Энергия_Рубины', 'en_rub-container', 'energy-rubies-section');
+                    processCategory(data['Инструменты'], 'Инструменты', 'instr-container', 'instruments-section');
+                    processCategory(data['Боксы'], 'Боксы', 'box-container', 'boxes-section');
                     
                } catch (error) {
                     console.error("Ошибка загрузки:", error);
-                    document.getElementById('vremtarif-container').innerHTML = 
-                         '<div class="col-12 error-message">Ошибка загрузки данных</div>';
-                    document.getElementById('coins-container').innerHTML = 
-                         '<div class="col-12 error-message">Ошибка загрузки данных</div>';
-                    document.getElementById('rubies-container').innerHTML = 
-                         '<div class="col-12 error-message">Ошибка загрузки данных</div>';
-                    document.getElementById('en_rub-container').innerHTML = 
-                         '<div class="col-12 error-message">Ошибка загрузки данных</div>';
-                    document.getElementById('instr-container').innerHTML = 
-                         '<div class="col-12 error-message">Ошибка загрузки данных</div>';
-                    document.getElementById('box-container').innerHTML = 
-                         '<div class="col-12 error-message">Ошибка загрузки данных</div>';
+                    // Показываем ошибки во всех контейнерах
+                    const errorHtml = '<div class="col-12 error-message">Ошибка загрузки данных: ' + error.message + '</div>';
+                    document.getElementById('vremtarif-container').innerHTML = errorHtml;
+                    document.getElementById('coins-container').innerHTML = errorHtml;
+                    document.getElementById('rubies-container').innerHTML = errorHtml;
+                    document.getElementById('en_rub-container').innerHTML = errorHtml;
+                    document.getElementById('instr-container').innerHTML = errorHtml;
+                    document.getElementById('box-container').innerHTML = errorHtml;
                }
           }
 
@@ -535,6 +440,13 @@
           document.addEventListener('DOMContentLoaded', function() {
                if (typeof firebase === 'undefined') {
                     console.error("Firebase не загружен");
+                    const errorHtml = '<div class="col-12 error-message">Ошибка: Библиотека Firebase не загружена</div>';
+                    document.getElementById('vremtarif-container').innerHTML = errorHtml;
+                    document.getElementById('coins-container').innerHTML = errorHtml;
+                    document.getElementById('rubies-container').innerHTML = errorHtml;
+                    document.getElementById('en_rub-container').innerHTML = errorHtml;
+                    document.getElementById('instr-container').innerHTML = errorHtml;
+                    document.getElementById('box-container').innerHTML = errorHtml;
                     return;
                }
                
@@ -553,5 +465,3 @@
      </script>
 </body>
 </html>
-
-
